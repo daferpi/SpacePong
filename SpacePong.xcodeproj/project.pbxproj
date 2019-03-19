@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DBDDE6359C1CAB76CF1E334 /* CGPoint+normalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBDD117076021555183B512 /* CGPoint+normalize.swift */; };
 		FF656E18223D0166004D02F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF656E17223D0166004D02F5 /* AppDelegate.swift */; };
 		FF656E1A223D0166004D02F5 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FF656E19223D0166004D02F5 /* GameScene.sks */; };
 		FF656E1C223D0166004D02F5 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FF656E1B223D0166004D02F5 /* Actions.sks */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7DBDD117076021555183B512 /* CGPoint+normalize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+normalize.swift"; sourceTree = "<group>"; };
 		FF656E14223D0166004D02F5 /* SpacePong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpacePong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF656E17223D0166004D02F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF656E19223D0166004D02F5 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				FF656E29223D0169004D02F5 /* Info.plist */,
 				FF656E3D223D02E6004D02F5 /* SpacePongViewController.swift */,
 				FF656E3E223D02E6004D02F5 /* SpacePongViewController.xib */,
+				7DBDD117076021555183B512 /* CGPoint+normalize.swift */,
 			);
 			path = SpacePong;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				FF656E1E223D0166004D02F5 /* GameScene.swift in Sources */,
 				FF656E18223D0166004D02F5 /* AppDelegate.swift in Sources */,
 				FF656E3F223D02E6004D02F5 /* SpacePongViewController.swift in Sources */,
+				7DBDDE6359C1CAB76CF1E334 /* CGPoint+normalize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

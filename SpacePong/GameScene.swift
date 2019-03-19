@@ -39,6 +39,8 @@ class GameScene: SKScene {
         self.addChild(self.leftBar)
         self.addChild(self.rightBar)
         self.addChild(self.ball)
+
+        self.moveBall()
     }
     
     func createBar(size: CGSize, position: CGPoint) -> SKShapeNode {
@@ -54,6 +56,23 @@ class GameScene: SKScene {
         ball.fillColor = .green
         return ball
     }
+
+    private func moveBall() {
+        let actualDuration = 8
+
+        var height = CGFloat(1048)
+
+        if let heightValue = self.view?.frame.height {
+            height = heightValue
+        }
+
+        let yPosition = random(min: 0, max: 340)
+        let xPosition = random(min: 0, max: height)
+        let toPoint = CGPoint(x: xPosition, y: yPosition)
+        let actionMove = SKAction.move(to: toPoint, duration: TimeInterval(actualDuration))
+
+        self.ball.run(actionMove)
+    }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
@@ -68,7 +87,10 @@ class GameScene: SKScene {
         }
     }
 
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        moveBall()
+    }
+
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
@@ -87,4 +109,13 @@ class GameScene: SKScene {
         
         self.lastUpdateTime = currentTime
     }
+
+    func random() -> CGFloat {
+        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+    }
+
+    func random(min: CGFloat, max: CGFloat) -> CGFloat {
+        return random() * (max - min) + min
+    }
+
 }
