@@ -15,6 +15,7 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     var leftBar: SKShapeNode!
     var rightBar: SKShapeNode!
+    var ball: SKShapeNode!
     
     private var lastUpdateTime : TimeInterval = 0
     private var label : SKLabelNode?
@@ -28,31 +29,16 @@ class GameScene: SKScene {
 
         self.lastUpdateTime = 0
         
-        // Get label node from scene and store it for use later
-//        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-//        if let label = self.label {
-//            label.alpha = 0.0
-//            label.run(SKAction.fadeIn(withDuration: 2.0))
-//        }
-//
-//        // Create shape node to use during mouse interaction
-//        let w = (self.size.width + self.size.height) * 0.05
-//        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-//
-//        if let spinnyNode = self.spinnyNode {
-//            spinnyNode.lineWidth = 2.5
-//
-//            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-//            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-//                                              SKAction.fadeOut(withDuration: 0.5),
-//                                              SKAction.removeFromParent()]))
-//        }
-        
+        // create elements
         self.leftBar = self.createBar(size: CGSize.init(width: 20, height: 160), position: CGPoint(x: leftBarPosX, y: 0))
         self.rightBar = self.createBar(size: CGSize.init(width: 20, height: 160), position: CGPoint(x: rightBarPosX, y: 0))
+        self.ball = self.createBall(radius: 18)
+    
+        
         
         self.addChild(self.leftBar)
         self.addChild(self.rightBar)
+        self.addChild(self.ball)
     }
     
     func createBar(size: CGSize, position: CGPoint) -> SKShapeNode {
@@ -60,6 +46,13 @@ class GameScene: SKScene {
         myNode.position = position
         myNode.fillColor = SKColor.red
         return myNode
+    }
+    
+    func createBall(radius: CGFloat) -> SKShapeNode {
+        let ball = SKShapeNode(circleOfRadius: 18)
+        ball.position = CGPoint(x: 0, y: 0)
+        ball.fillColor = .green
+        return ball
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
