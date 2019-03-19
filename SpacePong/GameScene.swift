@@ -58,18 +58,18 @@ class GameScene: SKScene {
     }
 
     private func moveBall() {
-        let actualDuration = 8
 
-        var height = CGFloat(1048)
+        var randonDirectionX = Int.random(in: -1...1)
+        var randonDirectionY = Int.random(in: -1...1)
 
-        if let heightValue = self.view?.frame.height {
-            height = heightValue
-        }
 
-        let yPosition = random(min: 0, max: 340)
-        let xPosition = random(min: 0, max: height)
-        let toPoint = CGPoint(x: xPosition, y: yPosition)
-        let actionMove = SKAction.move(to: toPoint, duration: TimeInterval(actualDuration))
+        let toPoint = CGPoint(x: UIScreen.main.bounds.size.height * CGFloat(randonDirectionX), y: UIScreen.main.bounds.size.width * CGFloat(randonDirectionY))
+
+        let distance = sqrt(pow((toPoint.x - ball.position.x), 2.0) + pow((toPoint.y - ball.position.y), 2.0));
+
+        let moveDuration = 0.0075 * distance;
+
+        let actionMove = SKAction.move(to: toPoint, duration: TimeInterval(moveDuration))
 
         self.ball.run(actionMove)
     }
@@ -88,6 +88,8 @@ class GameScene: SKScene {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.ball.position = CGPoint(x: 0, y: 0)
+        self.ball.removeAllActions()
         moveBall()
     }
 
